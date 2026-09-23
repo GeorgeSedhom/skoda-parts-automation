@@ -46,6 +46,10 @@ test.describe('Skoda Parts cart and checkout feature tests', () => {
     await cartPage.verifyProductCanBeAddedToCart();
   });
 
+  test('Verify Buy then Checkout opens the shopping cart page', async () => {
+    await cartPage.verifyBuyThenCheckoutOpensCartPage();
+  });
+
   test('Verify checkout starts from cart without placing an order', async () => {
     await checkoutPage.verifyCheckoutStartsWithoutPlacingOrder();
   });

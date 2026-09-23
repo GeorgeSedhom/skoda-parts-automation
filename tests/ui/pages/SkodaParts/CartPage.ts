@@ -36,6 +36,23 @@ export class CartPage extends BasePage {
     await expect(this.page.locator('body')).toContainText(/cart|basket|shopping|quantity|price|total|order/i);
   }
 
+  async assertCartPageView(productName: string): Promise<void> {
+    await this.assertPageLoaded();
+    await expect(this.page).toHaveURL(/\/shopping-cart\.html/);
+    await expect(this.page.locator('h1 span.title')).toHaveText(/shopping cart/i);
+    await expect(this.page.getByRole('heading', { name: /your cart is empty/i })).toHaveCount(0);
+    await expect(this.page.locator('#main')).toContainText(productName);
+  }
+
+  async verifyBuyThenCheckoutOpensCartPage(): Promise<void> {
+    const searchTerm = JsonDataReader.getInstance().getSearchTerm('commonPart');
+
+    await new HomePage(this.page).searchFor(searchTerm);
+    await new SearchResultsPage(this.page).openFirstProduct();
+    const productName = await new ProductDetailsPage(this.page).buyAndOpenCheckout();
+    await this.assertCartPageView(productName);
+  }
+
   async updateQuantity(quantity: string): Promise<void> {
     await expect(this.quantityInput).toBeVisible();
     await this.quantityInput.fill(quantity);
