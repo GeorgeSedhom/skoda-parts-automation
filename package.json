@@ -1,0 +1,32 @@
+{
+  "name": "skoda-parts-automation",
+  "version": "1.0.0",
+  "description": "Senior SDET automation assignment for skoda-parts.com",
+  "main": "index.js",
+  "scripts": {
+    "skoda": "playwright test tests/ui/specs/SkodaPartsTests --workers=1 --project=ui-tests",
+    "skoda:edge": "playwright test tests/ui/specs/SkodaPartsTests --workers=1 --project=Edge",
+    "skoda-search": "playwright test tests/ui/specs/SkodaPartsTests/Search.spec.ts --workers=1 --project=ui-tests",
+    "skoda-search:edge": "playwright test tests/ui/specs/SkodaPartsTests/Search.spec.ts --workers=1 --project=Edge",
+    "skoda-checkout": "playwright test tests/ui/specs/SkodaPartsTests/Checkout.spec.ts --workers=1 --project=ui-tests",
+    "skoda-checkout:edge": "playwright test tests/ui/specs/SkodaPartsTests/Checkout.spec.ts --workers=1 --project=Edge",
+    "skoda-auth": "playwright test tests/ui/specs/SkodaPartsTests/Authentication.spec.ts --workers=1 --project=ui-tests",
+    "skoda-auth:edge": "playwright test tests/ui/specs/SkodaPartsTests/Authentication.spec.ts --workers=1 --project=Edge",
+    "report": "playwright show-report",
+    "codegen": "playwright codegen https://www.skoda-parts.com/"
+  },
+  "keywords": [
+    "playwright",
+    "sdet",
+    "automation"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "1.58.2",
+    "@types/node": "^25.3.5"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1"
+  }
+}

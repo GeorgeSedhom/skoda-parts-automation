@@ -1,0 +1,22 @@
+{
+  "SearchTerms": {
+    "commonPart": "oil filter",
+    "model": "octavia",
+    "noResult": "zzzz-not-a-skoda-part"
+  },
+  "CheckoutCustomer": {
+    "email": "sdet.assignment@example.com",
+    "firstName": "Automation",
+    "lastName": "Candidate",
+    "phone": "+420 777 000 111",
+    "street": "Test Street 1",
+    "city": "Prague",
+    "zip": "11000",
+    "country": "Czech Republic"
+  },
+  "Authentication": {
+    "invalidEmail": "invalid-automation@example.com",
+    "invalidPassword": "WrongPassword123!",
+    "malformedEmail": "invalid-email"
+  }
+}
